@@ -1,0 +1,46 @@
+#================ADDING================================
+# // Adăugarea unui item în coșul clientului
+POST http://localhost:6969/api/card
+Content-Type: application/json
+
+{
+    "client_id": 1,
+    "product_id": 4
+}
+
+
+###================DELETING===============================
+# // Ștergerea unui item din coșul personal
+DELETE http://localhost:6969/api/card
+Content-Type: application/json
+
+{
+    "client_id": 1,
+    "product_id": 4
+}
+
+
+###================GET_ITEMS_FROM_CLIENT===================
+# // Returnarea în format JSON al itemilor din coș per client
+GET http://localhost:6969/api/card/2
+
+
+###================GET_CLIENTS_AND_PRODUCTS_SUM_DESC===================
+# // Returnarea în format JSON a clienților și sumei itemilor din coș, ordonate descrescător după sumă.
+GET http://localhost:6969/api/cards/sum
+
+
+###================GET_COUNT_PRODUCTS_DESC===================
+# // Returnarea în format JSON a produselor și numărul de apariții în coșul clienților ordonate după numărul de apariții, descrescător
+GET http://localhost:6969/api/cards/count
+
+
+###================GET_PRODUCTS_FOR_PAGINATION===================
+# // Returnarea în format JSON a produselor după limit și offset (pentru paginare)
+GET http://localhost:6969/api/products
+Content-Type: application/json
+
+{
+    "limit": 2,
+    "offset": 2
+}

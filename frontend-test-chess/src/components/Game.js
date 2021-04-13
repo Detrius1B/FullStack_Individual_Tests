@@ -1,6 +1,7 @@
 import '../style/Game.css';
 import React from "react";
-import {Button, ButtonGroup, Grid, Table} from "@material-ui/core";
+import {Button, ButtonGroup, Grid} from "@material-ui/core";
+import {TableContainer, Table, TableHead, TableRow, TableCell, TableBody} from "@material-ui/core";
 import Chessboard from "./Chessboard";
 import Piece from "./Piece";
 
@@ -44,7 +45,8 @@ const Game = () => {
 
     let position = {}
 
-    const firstRandomStart = () => {}
+    const firstRandomStart = () => {
+    }
 
     return (
         <div className="Game">
@@ -81,17 +83,33 @@ const Game = () => {
                 </Grid>
             </Grid>
 
+            <div className="buttons">
+                <ButtonGroup size="large" color="primary" aria-label="large outlined primary button group">
+                    <Button id="new_simulation">New Simulation</Button>
+                    <Button id="start">Start</Button>
+                    <Button id="pause">Pause</Button>
+                </ButtonGroup>
+            </div>
 
-            <ButtonGroup size="large" color="primary" aria-label="large outlined primary button group">
-                <Button id="new_simulation">New Simulation</Button>
-                <Button id="start">Start</Button>
-                <Button id="pause">Pause</Button>
-            </ButtonGroup>
-
-            <div className="history">
-                <Table>
-
-                </Table>
+            <div className="history-table">
+                <TableContainer>
+                    <Table aria-label="caption table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Piece</TableCell>
+                                <TableCell align="right">from</TableCell>
+                                <TableCell align="right">to</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell>piece_name</TableCell>
+                                <TableCell align="right">old_pos</TableCell>
+                                <TableCell align="right">new_pos</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </div>
         </div>
     )

@@ -18,3 +18,14 @@
 .infoPieces h2 {
     padding-bottom: 15px;
 }
+
+.buttons {
+    margin: 100px 0 0 0;
+}
+
+.history-table {
+    border: 1px solid darkgrey;
+    border-radius: 5px;
+    margin: 25px auto;
+    max-width: 700px;
+}

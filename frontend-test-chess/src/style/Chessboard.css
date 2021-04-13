@@ -1,0 +1,22 @@
+#chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    width: 400px;
+    height: 400px;
+    background-color: black;
+    margin: 0 auto;
+}
+
+#chessboard .square {
+    width: 50px;
+    height: 50px;
+}
+
+#chessboard .black-square {
+    background-color: antiquewhite;
+}
+
+#chessboard .white-square {
+    background-color: chocolate;
+}

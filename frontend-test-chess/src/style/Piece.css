@@ -1,0 +1,22 @@
+.piece {
+    display: inline-block;
+    font-size: 15px;
+    padding: 0;
+    margin: 5px;
+}
+
+.image {
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+}
+
+.killed {
+    background-color: #ff0000;
+    content: 'X';
+    z-index: 1000;
+}
+
+.live {
+    background-color: #00ff00;
+}

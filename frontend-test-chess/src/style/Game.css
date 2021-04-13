@@ -1,0 +1,20 @@
+.Game {
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 15px 0;
+    margin: auto;
+}
+
+.infoPieces {
+    /*display: inline-block;*/
+    /*background-color: aqua;*/
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.infoPieces h2 {
+    padding-bottom: 15px;
+}

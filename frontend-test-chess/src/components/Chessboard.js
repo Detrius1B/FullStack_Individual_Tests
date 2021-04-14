@@ -1,5 +1,7 @@
 import React from "react";
 import '../style/Chessboard.css'
+import Piece from "./Piece";
+import Square from "./Square";
 
 const Chessboard = ({value, onClick}) => {
 
@@ -7,22 +9,31 @@ const Chessboard = ({value, onClick}) => {
     const vertAxis = [1, 2, 3, 4, 5, 6, 7, 8]
     let board = []
 
+    const square = {
+        name: '',
+        free: true
+    }
+
+    // наполнять объектами
     for (let i = vertAxis.length - 1; i >= 0; i--) {
         for (let j = 0; j < horAxis.length; j++) {
             const num = i + j + 1
-            board.push(
-                <div className={`square ${(num % 2 === 0) ? 'black-square' : 'white-square'}`}>
-                    {horAxis[j] + vertAxis[i]}
-                </div>
-            )
+            board.push({
+                index: num,
+                position: horAxis[j] + vertAxis[i],
+                free: true
+            })
         }
 
     }
-    // console.log(board)
+    console.log(board)
 
     return (
         <div id="chessboard">
-            {board}
+            {board.map(square => (
+                <Square index={square.index} position={square.position} free={square.free}/>
+            ))}
+
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import '../style/Piece.css'
 
-const Piece = ({name, image, killed}) => {
+const Piece = ({name, image, positions, killed}) => {
     // const [pieceState, setPieceState] = useState('live');
     //
     // function killPiece(killed) {

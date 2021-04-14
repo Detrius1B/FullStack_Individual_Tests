@@ -4,7 +4,6 @@ import {Button, ButtonGroup, Grid} from "@material-ui/core";
 import {TableContainer, Table, TableHead, TableRow, TableCell, TableBody} from "@material-ui/core";
 import Chessboard from "./Chessboard";
 import Piece from "./Piece";
-import {yellow} from "@material-ui/core/colors";
 
 const Game = () => {
     const [history, setHistory] = useState([])
@@ -33,6 +32,7 @@ const Game = () => {
         {
             name: 'bK',
             img: 'assets/images/knight_b.png',
+            positions: getRandomPositions(),
             killed: true
         },
         {
@@ -43,14 +43,26 @@ const Game = () => {
         {
             name: 'bQ',
             img: 'assets/images/queen_b.png',
-            killed: true
+            killed: false
         }
     ]
 
     let position = {}
 
-    const firstRandomStart = () => {
+    function getRandomPositions() {
+        return {
+                x: Math.floor(Math.random() * 7),
+                y: Math.floor(Math.random() * 7)
+            }
     }
+    const firstRandomStart = () => {
+        // getRandomPositions(playerA)
+    }
+
+    firstRandomStart()
+    console.log(playerA)
+    console.log(playerB)
+
     const randomMove = () => {
         // 1. make random of piece which will move (between live pieces)
         // 2. make random of positionTo
@@ -59,8 +71,11 @@ const Game = () => {
         // 4. save old positionFrom
         // 5. put both positions into History
     }
-    console.log(history)
+
     const startNewSimulation = () => {
+        firstRandomStart()
+        // setInterval(()=> {
+        // }, 2000)
     }
     const pauseGame = () => {
     }
@@ -108,6 +123,7 @@ const Game = () => {
                                 // key={piece.}
                                 name={piece.name}
                                 image={piece.img}
+                                positions={piece.positions}
                                 killed={piece.killed}
                             />
                         ))}

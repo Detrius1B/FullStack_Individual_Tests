@@ -1,7 +1,7 @@
 import React from "react";
 import '../style/Square.css'
 
-const Square = () => {
+const Square = ({ value }) => {
 
 
 

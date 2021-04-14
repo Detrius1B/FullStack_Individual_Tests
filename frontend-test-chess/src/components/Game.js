@@ -1,11 +1,15 @@
 import '../style/Game.css';
-import React from "react";
+import React, {useState} from "react";
 import {Button, ButtonGroup, Grid} from "@material-ui/core";
 import {TableContainer, Table, TableHead, TableRow, TableCell, TableBody} from "@material-ui/core";
 import Chessboard from "./Chessboard";
 import Piece from "./Piece";
+import {yellow} from "@material-ui/core/colors";
 
 const Game = () => {
+    const [history, setHistory] = useState([])
+    const [stepNum, setStepNum] = useState(0)
+    const [whiteIsNext, setWhiteIsNext] = useState(true) // white is first always
 
     let playerA = [
         {
@@ -29,12 +33,12 @@ const Game = () => {
         {
             name: 'bK',
             img: 'assets/images/knight_b.png',
-            killed: false
+            killed: true
         },
         {
             name: 'bB',
             img: 'assets/images/bishop_b.png',
-            killed: false
+            killed: true
         },
         {
             name: 'bQ',
@@ -47,10 +51,54 @@ const Game = () => {
 
     const firstRandomStart = () => {
     }
+    const randomMove = () => {
+        // 1. make random of piece which will move (between live pieces)
+        // 2. make random of positionTo
+        // 3. if position is taken
+            // a. kill opponent (setPieceState = 'killed')
+        // 4. save old positionFrom
+        // 5. put both positions into History
+    }
+    console.log(history)
+    const startNewSimulation = () => {
+    }
+    const pauseGame = () => {
+    }
+    const stopGame = () => {
+    }
+
+    function startGame() {
+        if (checkWinner()) {
+            // stopGame()
+            return console.log('stop dude')
+        }
+        // else continue game
+        return console.log('nobody')
+    }
+
+    const showWinner = (winner) => {
+        console.log('winner-', winner)
+        setTimeout(() => {
+            document.querySelector('#winnerPlayer').innerHTML = winner
+        }, 100)
+    }
+
+    function checkWinner() {
+        let statusPlayerA = playerA.filter(piece => piece.killed !== true)
+        let statusPlayerB = playerB.filter(piece => piece.killed !== true)
+        if (statusPlayerA.length === 0) {
+            showWinner('Player B Won')
+            return true
+        } else if (statusPlayerB.length === 0) {
+            showWinner('Player A Won')
+            return true
+        }
+        return false
+    }
 
     return (
         <div className="Game">
-
+            <div id="winnerPlayer">0</div>
             <Grid container spacing={3}>
                 <Grid item xs={3}>
                     <div className='infoPieces'>
@@ -85,9 +133,9 @@ const Game = () => {
 
             <div className="buttons">
                 <ButtonGroup size="large" color="primary" aria-label="large outlined primary button group">
-                    <Button id="new_simulation">New Simulation</Button>
-                    <Button id="start">Start</Button>
-                    <Button id="pause">Pause</Button>
+                    <Button id="new_simulation" onClick={() => startNewSimulation()}>New Simulation</Button>
+                    <Button id="start" onClick={() => startGame()}>Start</Button>
+                    <Button id="pause" onClick={() => pauseGame()}>Pause</Button>
                 </ButtonGroup>
             </div>
 

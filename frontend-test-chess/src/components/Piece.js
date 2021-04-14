@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import '../style/Piece.css'
 
 const Piece = ({name, image, killed}) => {
+    // const [pieceState, setPieceState] = useState('live');
+    //
+    // function killPiece(killed) {
+    //     setPieceState((killed) ? 'killed' : 'live')
+    // }
+    //
+    const pieceState = (killed) ? 'killed' : 'live'
+
     return (
-        <div className={`piece ${(killed) ? 'killed' : 'live'}`}>
+        <div className={`piece ${pieceState}`}>
             <img className="image" src={image} alt=""/>
-            <p>{name} {(killed) ? 'killed' : 'live'}</p>
+            <p>{name} {pieceState}</p>
         </div>
     );
 }

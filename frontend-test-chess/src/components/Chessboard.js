@@ -12,12 +12,13 @@ const Chessboard = ({value, onClick}) => {
             const num = i + j + 1
             board.push(
                 <div className={`square ${(num % 2 === 0) ? 'black-square' : 'white-square'}`}>
-                    {horAxis[j]}{vertAxis[i]}
+                    {horAxis[j] + vertAxis[i]}
                 </div>
             )
         }
 
     }
+    // console.log(board)
 
     return (
         <div id="chessboard">

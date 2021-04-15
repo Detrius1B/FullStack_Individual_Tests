@@ -51,7 +51,7 @@ export function chessQueen(x, y) {
 
     for (let dir = 0; dir < 4; dir++) {
         for (let moves = 1; moves < 8; moves++) {
-            // where the bishop will be after moving number of squares
+            // where the queen will be after moving number of squares
             let new_x, new_y
             new_x = x + dx[dir] * moves
             new_y = y + dy[dir] * moves

@@ -4,19 +4,29 @@
     padding: 0;
     margin: 5px;
 }
-
-.image {
-    border-radius: 50%;
-    width: 50%;
-    height: 50%;
+.live {
+    height: 100%;
+    margin: 0;
 }
 
-.killed {
+.square .piece {
+    border: 3px solid black;
+}
+.square.black-square .piece {
+    border: 3px solid black;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.infoPieces .killed {
     background-color: #ff0000;
     content: 'X';
     z-index: 1000;
 }
 
-.live {
+.infoPieces .live {
     background-color: #00ff00;
 }

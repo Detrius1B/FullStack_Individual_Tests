@@ -51,7 +51,7 @@ const Game = () => {
             name: 'wB',
             img: 'assets/images/bishop_w.png',
             positions: {},
-            killed: true
+            killed: false
         },
         {
             name: 'wQ',
@@ -65,13 +65,13 @@ const Game = () => {
             name: 'bK',
             img: 'assets/images/knight_b.png',
             positions: {},
-            killed: true
+            killed: false
         },
         {
             name: 'bB',
             img: 'assets/images/bishop_b.png',
             positions: {},
-            killed: true
+            killed: false
         },
         {
             name: 'bQ',
